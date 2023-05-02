@@ -1,0 +1,13 @@
+.letter_boxes_section{ 
+	max-width: max-content;
+	display: flex;
+	gap: 1rem;
+
+	padding: 1rem 2rem;
+
+	background-color: var(--bg-purple-800);
+	border-radius: var(--border-radius-1);
+
+	margin-inline: auto;
+	margin-top: 2rem;
+}

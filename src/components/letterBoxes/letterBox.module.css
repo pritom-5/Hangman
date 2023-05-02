@@ -1,0 +1,17 @@
+.letter_box_section {
+	background-color: var(--bg-purple-900);
+	color: var(--bg-yellow-800);
+	border: 2px solid var(--bg-yellow-800);
+	border-radius: var(--border-radius-0);
+	width: 3rem;
+	aspect-ratio: 1/1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.letter_box_section > h3 {
+	font-size: 24px;
+}
+
+

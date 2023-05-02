@@ -1,0 +1,17 @@
+.notification_modal_section {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--bg);
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: var(--border-radius-0)
+}
+
+.correct {
+	--bg: var(--bg-green-500)
+}
+.wrong {
+	--bg: var(--bg-red-500)
+}

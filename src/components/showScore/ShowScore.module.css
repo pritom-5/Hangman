@@ -1,0 +1,27 @@
+.score_section {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	margin-inline: auto;
+	width: max-content;
+	background-color: var(--bg-purple-800);
+	color: var(--bg--yellow-800);
+	padding: 1rem;
+	margin-top: 2rem;
+	border-radius: var(--border-radius-1)
+}
+
+.score {
+	width: 2rem;
+}
+
+.lives_section, 
+.total_section,
+.correct_section
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem
+}
+
