@@ -8,7 +8,7 @@ export default function useCheckSubmitLetterHook( wordObjArr: wordObjArr, setObj
 	const [ inputLetterState, setInputLetterState ] = useState('')
 	const [ scoreState, setScoreState ] = useState(LIVES_LEFT)
 
-	const { setShowNotificationFn, showNotification } = useContext( NotificationContext )
+	const { setNotificationStackFn } = useContext( NotificationContext )
 
 	const setInputLetterStateFn = (letter: string) => {
 		setInputLetterState(letter)
@@ -36,7 +36,7 @@ export default function useCheckSubmitLetterHook( wordObjArr: wordObjArr, setObj
 		
 		// if letter doesn't exist reduce score
 		if (!existingWordObj) {
-			setShowNotificationFn( true, 'error', 'oops! wrong' )
+			setNotificationStackFn( true, 'error', 'oops! wrong' )
 
 			return;
 		}
@@ -53,7 +53,7 @@ export default function useCheckSubmitLetterHook( wordObjArr: wordObjArr, setObj
 
 		setObjArr(wordObjArr0Update)
 
-		setShowNotificationFn( true, 'success', 'correct' )
+		setNotificationStackFn( true, 'success', 'correct' )
 
 
 	} , [inputLetterState])

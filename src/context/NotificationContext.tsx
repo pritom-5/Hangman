@@ -1,20 +1,19 @@
 import React, { createContext } from "react";
 import useNotificationHook from "../hooks/useNotificationHook";
 
-
 const notificationDefaultContext = {
-	showNotification: { show: false, type: '', message: '' },
-	setShowNotificationFn: ( show: true | false, type: 'error' | 'success', message: 'correct' | 'oops! wrong' ) => {}
+	notificationStack: [{ show: false, type: 'error', message: 'correct' }],
+	setNotificationStackFn: ( show: true | false, type: 'error' | 'success', message: 'correct' | 'oops! wrong' ) => {}
 } 
 const NotificationContext = createContext( notificationDefaultContext )
 
 // ----------------
 export function NotificationContextProvider( { children }: { children: React.ReactNode } ) {
-	const { showNotification, setShowNotificationFn } = useNotificationHook() 	
+	const { notificationStack, setNotificationStackFn } = useNotificationHook() 	
 
 	return (
 		<NotificationContext.Provider value = {{ 
-		showNotification, setShowNotificationFn
+		notificationStack, setNotificationStackFn
 		}}> { children } </NotificationContext.Provider>	
 		   )
 }

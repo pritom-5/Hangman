@@ -1,0 +1,10 @@
+.notification_section {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	background: rgba(0, 0, 0, 0);
+}

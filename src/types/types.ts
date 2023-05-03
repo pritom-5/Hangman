@@ -1,6 +1,9 @@
-type wordObjT = { letter: string, show: boolean }
-type wordObjArrT = { letter: string, show: boolean }[]
-type isGameOverType = { isGameOver: boolean, wordGuessed: boolean }
+export type wordObjT = { letter: string, show: boolean }
+export type wordObjArrT = { letter: string, show: boolean }[]
+export type isGameOverType = { isGameOver: boolean, wordGuessed: boolean }
+export type notificationType = {
+	show: boolean
+	type: string
+	message: string
+}
 
-export { wordObjT, 
-	wordObjArrT, isGameOverType }

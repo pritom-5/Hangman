@@ -1,35 +1,36 @@
 import { useEffect, useState } from "react"
+import { notificationType } from "../types/types"
+
 
 export default function useNotificationHook() {
 	// show notification state
-	const [ showNotification, setShowNotification ] = useState( { show: false, type: '', message: '' } )
-	// timeout state
-	const [ timeoutState, setTimeoutState ] = useState( 0 )
+	const [ notificationStack, setNotificationStack ] = useState<notificationType[]>([])
 
 	// useEffect 
 	useEffect(() => {
-		if ( !showNotification.show ) return
+		if ( !notificationStack.length ) return
 
 		const timeout = setTimeout(() => {
-			setShowNotification( prev => { 
-				return { ...prev, show: false }
-			} )
-		}, 3000)
+			const notificationStack0 = [...notificationStack]
+			notificationStack0.pop()
+			setNotificationStack(notificationStack0)
+		}, 2500)
 
-		setTimeoutState( timeout )
 
 		return () => {
-			clearTimeout( timeoutState )
+			clearTimeout( timeout )
 		}
 
-	}, [ showNotification.show ])
+	}, [ notificationStack ])
 
 
-	const setShowNotificationFn = ( show: true | false, type: 'error' | 'success', message: 'correct' | 'oops! wrong' ) => {
-		setShowNotification( { show, type, message } )
+	const setNotificationStackFn = ( show: true | false, type: 'error' | 'success', message: 'correct' | 'oops! wrong' ) => {
+		const notificationStack0 = [...notificationStack]
+		notificationStack0.unshift({ show, type, message })
+		setNotificationStack(notificationStack0)
 	}
 
 
-	return { showNotification, setShowNotificationFn }
+	return { notificationStack, setNotificationStackFn }
 }
 
